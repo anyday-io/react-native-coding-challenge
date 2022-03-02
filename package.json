@@ -8,7 +8,8 @@
     "start": "react-native start",
     "test": "jest",
     "lint": "eslint . --fix --ext .js,.jsx,.ts,.tsx",
-    "compile": "tsc --noEmit -p . --pretty"
+    "compile": "tsc --noEmit -p . --pretty",
+    "prepare": "husky install"
   },
   "dependencies": {
     "react": "17.0.2",
@@ -29,7 +30,8 @@
     "metro-react-native-babel-preset": "^0.66.2",
     "prettier": "^2.5.1",
     "react-test-renderer": "17.0.2",
-    "typescript": "^4.4.4"
+    "typescript": "^4.4.4",
+    "husky": "^7.0.0"
   },
   "resolutions": {
     "@types/react": "^17"
