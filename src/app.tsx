@@ -3,6 +3,8 @@ import { SafeAreaView, StatusBar, StyleSheet, Text, useColorScheme } from 'react
 import { NavigationContainer } from '@react-navigation/native'
 import { Strings } from './contants'
 import { navigation } from './navigators'
+import { Provider } from 'react-redux'
+import { store } from './store'
 
 const styles = StyleSheet.create({
   container: {
@@ -21,12 +23,14 @@ const styles = StyleSheet.create({
 const App = (): JSX.Element => {
   const isDarkMode = useColorScheme() === 'dark'
   return (
-    <NavigationContainer ref={navigation.ref}>
-      <SafeAreaView style={styles.container}>
-        <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-        <Text style={styles.welcomeText}>{Strings.general.welcome}</Text>
-      </SafeAreaView>
-    </NavigationContainer>
+    <Provider store={store}>
+      <NavigationContainer ref={navigation.ref}>
+        <SafeAreaView style={styles.container}>
+          <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+          <Text style={styles.welcomeText}>{Strings.general.welcome}</Text>
+        </SafeAreaView>
+      </NavigationContainer>
+    </Provider>
   )
 }
 
