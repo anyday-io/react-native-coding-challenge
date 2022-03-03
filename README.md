@@ -57,8 +57,11 @@ Response
 ```
 The `results` will be an array of characters. Check out the [Character schema](https://rickandmortyapi.com/documentation/#character-schema)
 
-Each list items will contain the character's profile image, name and status. Example of how the character list item view looks:
+Each list items will contain the character's profile image, name and status.
+Example of how the character list item view looks:
+
 <img src="./images/character_row.png" width="300">
+
 
 The list view component of this screen will have the ability to
 - show pending state when making API requests
