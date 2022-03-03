@@ -1,5 +1,5 @@
 jest.mock('@react-navigation/native', () => ({
-  NavigationContainer: jest.fn().mockReturnValue(function NavigationContainer(props) {
+  NavigationContainer: jest.fn().mockReturnValue(function NavigationContainer() {
     return null
   }),
   createSwitchNavigator: jest.fn(),

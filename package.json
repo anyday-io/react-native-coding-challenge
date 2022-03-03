@@ -54,7 +54,7 @@
       "<rootDir>/__mocks__"
     ],
     "transformIgnorePatterns": [
-      "node_modules/(@?react-navigation|react-navigation-redux-helpers|loki|@react-native-community|@sentry/react-native|static-container)"
+      "node_modules/(@?react-navigation|@react-native-community|static-container)"
     ],
     "testPathIgnorePatterns": ["<rootDir>/node_modules/"]
   }
