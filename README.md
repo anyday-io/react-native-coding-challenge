@@ -18,9 +18,9 @@
 
 ```
 
-# Project Configuration:
+# Project Configuration
 - Typescript + ESLint + Prettier
-- Packages
+- Installed Packages:
 ```
 "dependencies": {
     "@react-navigation/native": "^6.0.8",
@@ -35,7 +35,124 @@
 },
 ```
 
-# Challenge
-We'd like to display a list of characters from a US TV show called [Rick and Morty](https://www.adultswim.com/videos/rick-and-morty).
-From this list, we're able to pull down to refresh the data, be able to paginate through pages. This list view also contains a search bar that let users to search for characters by their `name`.
-Tapping on the character will navigate us to a detail screen that gives us more info about that selected character.
+# Our Challenge
+We'll be using this public [Rick and Morty API](https://rickandmortyapi.com/) to feed data for our challenge
+
+The first screen of the application will display a list of characters using this endpoint
+```
+GET: https://rickandmortyapi.com/api/character
+
+Response
+{
+  "info": {
+    "count": 826,
+    "pages": 42,
+    "next": "https://rickandmortyapi.com/api/character/?page=2",
+    "prev": null
+  },
+  "results": [
+    // ...
+  ]
+}
+```
+The `results` will be an array of characters. Check out the [Character schema](https://rickandmortyapi.com/documentation/#character-schema)
+
+Each list items will contain the character's profile image, name and status. Example of how the character list item view looks:
+<img src="./images/character_row.png" width="300">
+
+The list view component of this screen will have the ability to
+- show pending state when making API requests
+- pull down to refresh the data
+- paginate the data
+
+At the top of the list view component, there will a search bar component, that lets user to filter for certain characters by `name`. Using this [Filter characters](https://rickandmortyapi.com/documentation/#filter-characters) endpoint.
+```
+GET: https://rickandmortyapi.com/api/character/?name=rick
+
+Response
+{
+  "info": {
+    "count": 29,
+    "pages": 2,
+    "next": "https://rickandmortyapi.com/api/character/?page=2&name=rick&status=alive",
+    "prev": null
+  },
+  "results": [
+    {
+      "id": 1,
+      "name": "Rick Sanchez",
+      "status": "Alive",
+      "species": "Human",
+      "type": "",
+      "gender": "Male",
+      "origin": {
+        "name": "Earth",
+        "url": "https://rickandmortyapi.com/api/location/1"
+      },
+      "location": {
+        "name": "Earth",
+        "url": "https://rickandmortyapi.com/api/location/20"
+      },
+      "image": "https://rickandmortyapi.com/api/character/avatar/1.jpeg",
+      "episode": [
+        "https://rickandmortyapi.com/api/episode/1",
+        "https://rickandmortyapi.com/api/episode/2",
+        //...
+      ],
+      "url": "https://rickandmortyapi.com/api/character/1",
+      "created": "2017-11-04T18:48:46.250Z"
+    },
+    // ...
+  ]
+}
+}
+```
+
+When tapping on the list view item, it navigates users to the second screen which displays the character's details such as: `image`, `name`, `status`, `species`, `type`, `gender`, `origin name`, `location name`, `episodes` in which the character appears. Please feel free to come up with a design to display these information.
+
+We might need to refetch a single character if the data above are unavailable from previous request. You can get a single character by adding the `id` as a parameter: `/character/2`
+```
+GET: https://rickandmortyapi.com/api/character/2
+
+Response:
+{
+  "id": 2,
+  "name": "Morty Smith",
+  "status": "Alive",
+  "species": "Human",
+  "type": "",
+  "gender": "Male",
+  "origin": {
+    "name": "Earth",
+    "url": "https://rickandmortyapi.com/api/location/1"
+  },
+  "location": {
+    "name": "Earth",
+    "url": "https://rickandmortyapi.com/api/location/20"
+  },
+  "image": "https://rickandmortyapi.com/api/character/avatar/2.jpeg",
+  "episode": [
+    "https://rickandmortyapi.com/api/episode/1",
+    "https://rickandmortyapi.com/api/episode/2",
+    // ...
+  ],
+  "url": "https://rickandmortyapi.com/api/character/2",
+  "created": "2017-11-04T18:50:21.651Z"
+}
+```
+
+# Things we will be assessing
+- Using redux store, selectors and sagas OR MobX state tree (if you prefer)
+- Using type definitions with Typescript
+- Using API services to make requests
+- Using model layer (if necessary)
+- Using functional components or class components
+- Using hooks
+- Code structuring
+
+# Troubleshooting
+## I can't push my commits to the github. What can I do?
+## Answer:
+- Make sure you added mocks for the packages you installed, or your added tests pass by running `yarn test`
+- Make sure your type check pass by running `yarn compile`
+- Make sure you don't have any linting errors by running `yarn lint`
