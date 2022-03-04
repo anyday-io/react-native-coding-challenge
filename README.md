@@ -1,8 +1,8 @@
 # RN Coding Challenge
-- Please do not take more than one day for this challenge.
-- Please open a pull request against the `main` branch with your implementation
-- Please feel free to ask any questions if you need more clarification.
-- When you complete the challenge, please add a Markdown as below:
+- Please do not take more than 6 hours for this challenge.
+- Please open a pull request against the `main` branch for your implementation
+- Please feel free to ask any questions if you need more clarifications.
+- When you complete the challenge, please add a Markdown to you PR as below:
 ```
 # Description
 
@@ -56,6 +56,7 @@ Response
 }
 ```
 The `results` will be an array of characters. Check out the [Character schema](https://rickandmortyapi.com/documentation/#character-schema)
+
 
 Each list items will contain the character's profile image, name and status.
 Example of how the character list item view looks:
@@ -152,10 +153,12 @@ Response:
 - Using functional components or class components
 - Using hooks
 - Code structuring
+- Using Stylesheet or styled components
 
 # Troubleshooting
 ## I can't push my commits to the github. What can I do?
 ## Answer:
+Our project was configured with a pre-push hook to validate your code, therefore you have to:
 - Make sure you added mocks for the packages you installed, or your added tests pass by running `yarn test`
 - Make sure your type check pass by running `yarn compile`
 - Make sure you don't have any linting errors by running `yarn lint`
