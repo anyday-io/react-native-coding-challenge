@@ -1,3 +1,6 @@
+import { all } from 'redux-saga/effects'
+import character from './character'
+
 export default function* root() {
-  yield console.log('Root saga')
+  yield all([...character])
 }

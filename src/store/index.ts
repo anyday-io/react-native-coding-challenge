@@ -9,6 +9,7 @@ import createSagaMiddleware from 'redux-saga'
 
 import phone, { actions as phoneAC, INITIAL_STATE as PhoneInitialState } from './phone'
 import rootSaga from '../sagas'
+import character from './character'
 
 export const InitialState = {
   phone: PhoneInitialState,
@@ -20,6 +21,7 @@ export const ActionCreators = {
 
 const rootReducer = combineReducers({
   phone,
+  character,
 })
 
 const loggerMiddleware =
@@ -28,7 +30,7 @@ const loggerMiddleware =
     const result = next(action)
     if (process.env.NODE_ENV !== 'production') {
       // Group these console logs into one closed group
-      /* eslint-disable no-console */
+      /* eslint-disable no-console*/
       const after = store.getState()
 
       console.groupCollapsed(`%c dispatching action => ${action.type}`, 'color: rgb(118, 74, 188)')

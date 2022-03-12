@@ -1,16 +1,14 @@
 import React from 'react'
-import { SafeAreaView, StatusBar, StyleSheet, Text, useColorScheme } from 'react-native'
+import { SafeAreaView, StatusBar, StyleSheet, useColorScheme } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
-import { Strings } from './contants'
-import { navigation } from './navigators'
+import { HomeStackNavigation, navigation } from './navigators'
 import { Provider } from 'react-redux'
 import { store } from './store'
+import LoadingIndicator from './common/LoadingIndicator'
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
   },
   welcomeText: {
     color: 'tomato',
@@ -27,8 +25,9 @@ const App = (): JSX.Element => {
       <NavigationContainer ref={navigation.ref}>
         <SafeAreaView style={styles.container}>
           <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-          <Text style={styles.welcomeText}>{Strings.general.welcome}</Text>
+          <HomeStackNavigation />
         </SafeAreaView>
+        <LoadingIndicator />
       </NavigationContainer>
     </Provider>
   )
