@@ -7,7 +7,7 @@ import EpisodeItem from '@components/EpisodeItem'
 import styles from './styles'
 import { commonStyles } from '@constants/index'
 import { getCharacter } from '../../sagas/action'
-import colors from '@constants/colors'
+import { colors } from '@constants/index'
 import StyledSkeletonDetails from '@components/StyledSkeletonDetails'
 
 const Details: React.FC<DetailsProps> = ({ route }) => {

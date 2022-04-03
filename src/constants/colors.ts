@@ -1,4 +1,4 @@
-const colors = Object.freeze({
+export const colors = Object.freeze({
   transparent: 'transparent',
   white: '#ffffff',
   whiteSmoke: '#f6f6f6',
@@ -8,5 +8,3 @@ const colors = Object.freeze({
   red: '#ff0000',
   green: '#32CD32',
 })
-
-export default colors

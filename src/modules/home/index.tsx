@@ -4,10 +4,10 @@ import { SafeAreaView } from 'react-native-safe-area-context'
 import debounce from 'lodash.debounce'
 import { commonStyles } from '@constants/index'
 import { HomeProps } from '@modules/types'
+import { colors } from '@constants/index'
 import { fetchCharacters } from '../../sagas/action'
 import { useAppSelector, useAppDispatch } from '../../store/hooks'
 import { refreshCharacters } from '../../store/character'
-import colors from '@constants/colors'
 
 const Home: React.FC<HomeProps> = ({ navigation }) => {
   const { items, nextPage, loading } = useAppSelector((state) => state.character)

@@ -1,5 +1,5 @@
 import { StyleSheet } from 'react-native'
-import colors from './colors'
+import { colors } from './colors'
 import { DEVICE_WIDTH } from './dimensions'
 
 export const commonStyles = StyleSheet.create({
