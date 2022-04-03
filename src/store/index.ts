@@ -8,18 +8,25 @@ import {
 import createSagaMiddleware from 'redux-saga'
 
 import phone, { actions as phoneAC, INITIAL_STATE as PhoneInitialState } from './phone'
+import character, {
+  actions as characterAC,
+  INITIAL_STATE as CharacterInitialState,
+} from './character'
 import rootSaga from '../sagas'
 
 export const InitialState = {
   phone: PhoneInitialState,
+  character: CharacterInitialState,
 }
 
 export const ActionCreators = {
   phone: phoneAC,
+  character: characterAC,
 }
 
 const rootReducer = combineReducers({
   phone,
+  character,
 })
 
 const loggerMiddleware =

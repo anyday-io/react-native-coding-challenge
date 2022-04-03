@@ -1,35 +1,22 @@
 import React from 'react'
-import { SafeAreaView, StatusBar, StyleSheet, Text, useColorScheme } from 'react-native'
+import { StatusBar, useColorScheme } from 'react-native'
 import { NavigationContainer } from '@react-navigation/native'
-import { Strings } from './contants'
-import { navigation } from './navigators'
 import { Provider } from 'react-redux'
 import { store } from './store'
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
-  },
-  welcomeText: {
-    color: 'tomato',
-    fontWeight: 'bold',
-    textAlign: 'center',
-    fontSize: 36,
-  },
-})
+import { navigation } from '@navigators/index'
+import RootNavigator from '@modules/rootNavigator'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
 const App = (): JSX.Element => {
   const isDarkMode = useColorScheme() === 'dark'
   return (
     <Provider store={store}>
-      <NavigationContainer ref={navigation.ref}>
-        <SafeAreaView style={styles.container}>
+      <SafeAreaProvider>
+        <NavigationContainer ref={navigation.ref}>
           <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-          <Text style={styles.welcomeText}>{Strings.general.welcome}</Text>
-        </SafeAreaView>
-      </NavigationContainer>
+          <RootNavigator />
+        </NavigationContainer>
+      </SafeAreaProvider>
     </Provider>
   )
 }

@@ -1,3 +1,8 @@
+import { all } from 'redux-saga/effects'
+import { characterSaga } from './characterSaga'
+
+export * from './characterSaga'
+
 export default function* root() {
-  yield console.log('Root saga')
+  yield all([characterSaga()])
 }

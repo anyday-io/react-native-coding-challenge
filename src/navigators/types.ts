@@ -1,3 +1,6 @@
 import { ParamListBase } from '@react-navigation/native'
 
-export interface RootStackParamList extends ParamListBase {}
+export interface RootStackParamList extends ParamListBase {
+  Home: undefined
+  Details: { id: string }
+}
