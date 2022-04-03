@@ -1,5 +1,8 @@
 import 'react-native'
 import React from 'react'
+
+import 'react-native-gesture-handler/jestSetup'
+
 import App from '../src/app'
 
 // Note: test renderer must be required after react-native.
